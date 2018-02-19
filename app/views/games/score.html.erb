@@ -1,0 +1,19 @@
+<h1>RESULTS</h1>
+
+<ul>
+  <li>time: <%=@result[:time]%></li>
+  <li>score: <%=@result[:score].round(2)%></li>
+  <li><% if @result[:message] == "not an english word"%>
+    Sorry but <strong><%= params[:attempt].upcase%></strong> doesn't seems to be a valid English word <%end%>
+      <% if @result[:message] == "not in the grid"%>
+    Sorry but <strong><%= params[:attempt].upcase%></strong> can't be built out of: "<%= params[:grid]%>"<%end%>
+      <% if @result[:message] == "well done"%>
+    Congratulations !! <strong><%= params[:attempt].upcase%></strong> is a valid English word<%end%>
+  </li>
+</ul>
+
+
+
+
+<%= link_to("play again?", new_path)%>
+
